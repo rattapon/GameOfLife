@@ -21,9 +21,5 @@ namespace GameOfLife.Lib
             IsAlive = !IsAlive;
         }
 
-        public override string ToString()
-        {
-            return IsAlive ? "x" : "-";
-        }
     }
 }
