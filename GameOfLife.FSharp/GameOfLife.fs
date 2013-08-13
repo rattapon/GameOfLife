@@ -22,10 +22,9 @@ open System
                0
             else
                if grid.[x, y] = true then 1 else 0
-
             
 
-        let countNeightbours x y (grid:bool[,]) = 
+        let countNeighbours x y (grid:bool[,]) = 
             let topLeft = isCellAlive (x-1) (y+1) grid
             let topMid = isCellAlive x (y+1) grid
             let topRight = isCellAlive (x+1) (y+1) grid
@@ -35,6 +34,18 @@ open System
             let bottomMid = isCellAlive x (y-1) grid
             let bottomRight = isCellAlive (x+1) (y-1) grid
             topLeft + topMid + topRight + left + right + bottomLeft + bottomMid + bottomRight
+
+        let processNextGen (grid:bool[,]) = 
+            let row = Array2D.length1 grid
+            let column = Array2D.length2 grid
+            let newGrid = Array2D.init row column (fun x y ->
+                let numNeighbours = countNeighbours x y grid
+                match numNeighbours with
+                    | 2 when grid.[x, y] = true -> true
+                    | 3 when grid.[x, y] = true -> true
+                    | 3 when grid.[x, y] = false -> true
+                    | _ -> false)            
+            newGrid
   
 
         [<CompiledName("Initialize")>]
@@ -44,4 +55,7 @@ open System
         let wake coordinates grid = wakeUpCell coordinates grid
 
         [<CompiledName("CountNeighbours")>]
-        let count x y grid = countNeightbours x y grid
+        let count x y grid = countNeighbours x y grid
+
+        [<CompiledName("NextGeneration")>]
+        let nextGen grid = processNextGen grid
