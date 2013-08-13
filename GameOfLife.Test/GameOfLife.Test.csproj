@@ -30,6 +30,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="FSharp.Core, Version=4.3.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="nunit.framework">
       <HintPath>..\ExternalLibrary\NUnit.2.6.2\lib\nunit.framework.dll</HintPath>
     </Reference>
@@ -47,6 +48,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GameOfLife.FSharp\GameOfLife.FSharp.fsproj">
+      <Project>{3a0c6963-2248-4316-90cc-a920cbedebd5}</Project>
+      <Name>GameOfLife.FSharp</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameOfLife.Lib\GameOfLife.Lib.csproj">
       <Project>{80233e66-98c2-46f6-bd86-db6519d79634}</Project>
       <Name>GameOfLife.Lib</Name>
