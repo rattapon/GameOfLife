@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLifeUI", "GameOfLifeU
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameOfLife.Console", "GameOfLife.Console\GameOfLife.Console.csproj", "{1881EFE4-F9EB-4D9E-9DD6-B4E54A46BFAF}"
 EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "GameOfLife.FSharp", "GameOfLife.FSharp\GameOfLife.FSharp.fsproj", "{3A0C6963-2248-4316-90CC-A920CBEDEBD5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{1881EFE4-F9EB-4D9E-9DD6-B4E54A46BFAF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1881EFE4-F9EB-4D9E-9DD6-B4E54A46BFAF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1881EFE4-F9EB-4D9E-9DD6-B4E54A46BFAF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A0C6963-2248-4316-90CC-A920CBEDEBD5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A0C6963-2248-4316-90CC-A920CBEDEBD5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A0C6963-2248-4316-90CC-A920CBEDEBD5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A0C6963-2248-4316-90CC-A920CBEDEBD5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
