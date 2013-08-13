@@ -45,6 +45,7 @@ open System
                     | 3 when grid.[x, y] = true -> true
                     | 3 when grid.[x, y] = false -> true
                     | _ -> false)            
+            
             newGrid
   
 
