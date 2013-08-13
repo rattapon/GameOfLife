@@ -43,19 +43,51 @@ namespace GameOfLife.Test
         public void LiveUpCellShouldBeSuccess()
         {
             var cells = FSharp.GameOfLife.Initialize(3, 3);
-            var liveCells = new List<Tuple<int, int>>()
-            {
-                Tuple.Create(0, 0),
-                Tuple.Create(0, 1),
-                Tuple.Create(0, 2),
-            };
+            var liveCells = CreateLives3StraightPattern();
            
             var newCells = FSharp.GameOfLife.LiveCell(liveCells.ToFSharpList(), cells);
 
-            Assert.AreEqual(true, newCells[0, 0]);
-            Assert.AreEqual(true, newCells[0, 1]);
-            Assert.AreEqual(true, newCells[0, 2]);
+            Assert.AreEqual(true, newCells[1, 0]);
+            Assert.AreEqual(true, newCells[1, 1]);
+            Assert.AreEqual(true, newCells[1, 2]);
             
         }
+
+        [Test]
+        public void ShouldCountAliveNeighboursCorrectly()
+        {
+            var cells = FSharp.GameOfLife.Initialize(3, 3);
+            var liveCells = CreateLives3StraightPattern();
+
+            var world = FSharp.GameOfLife.LiveCell(liveCells.ToFSharpList(), cells);
+
+            Assert.AreEqual(true, world[1, 0]);
+            Assert.AreEqual(true, world[1, 1]);
+            Assert.AreEqual(true, world[1, 2]);
+
+            Assert.AreEqual(2, FSharp.GameOfLife.CountNeighbours(0, 0, world));
+            Assert.AreEqual(3, FSharp.GameOfLife.CountNeighbours(0, 1, world));
+            Assert.AreEqual(2, FSharp.GameOfLife.CountNeighbours(0, 2, world));
+            Assert.AreEqual(1, FSharp.GameOfLife.CountNeighbours(1, 0, world));
+            Assert.AreEqual(2, FSharp.GameOfLife.CountNeighbours(1, 1, world));
+            Assert.AreEqual(1, FSharp.GameOfLife.CountNeighbours(1, 2, world));
+            Assert.AreEqual(2, FSharp.GameOfLife.CountNeighbours(2, 0, world));
+            Assert.AreEqual(3, FSharp.GameOfLife.CountNeighbours(2, 1, world));
+            Assert.AreEqual(2, FSharp.GameOfLife.CountNeighbours(2, 2, world));
+
+        }
+
+
+
+        private IEnumerable<Tuple<int, int>> CreateLives3StraightPattern()
+        {
+            return new List<Tuple<int, int>>
+            {
+                Tuple.Create(1, 0),
+                Tuple.Create(1, 1),
+                Tuple.Create(1, 2)
+            };
+        }
+        
     }
 }
